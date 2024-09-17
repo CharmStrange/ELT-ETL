@@ -5,23 +5,19 @@ using namespace std;
 
 sqlite3* f() {
     sqlite3* db;
-    int rc = sqlite3_open("sqlite.db", &db);
-    if (rc) {
-        cout << "Can't open database: " << sqlite3_errmsg(db) << endl;
+    int q = sqlite3_open("sqlite.db", &db);
+    if (q) {
         return nullptr;
-    }
-    else {
-        cout << "Opened database successfully" << endl;
     }
     return db;
 }
 
 void executer(sqlite3* db, const char* query) {
-    char* errMsg = 0;
-    int rc = sqlite3_exec(db, query, NULL, NULL, &errMsg);
-    if (rc != SQLITE_OK) {
-        cout << errMsg << endl;
-        sqlite3_free(errMsg);
+    char* err = 0;
+    int q = sqlite3_exec(db, query, NULL, NULL, &err);
+    if (q != SQLITE_OK) {
+        cout << err << endl;
+        sqlite3_free(err);
     }
 }
 
