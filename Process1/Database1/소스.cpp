@@ -20,7 +20,7 @@ void executer(sqlite3* db, const char* query) {
         sqlite3_free(err);
     }
 }
-
+/*
 int main() {
     sqlite3* db = f();
     if (db == nullptr) return 1; 
@@ -34,3 +34,4 @@ int main() {
     sqlite3_close(db);
     return 0;
 }
+*/

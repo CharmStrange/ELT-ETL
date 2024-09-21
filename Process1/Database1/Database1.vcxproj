@@ -134,6 +134,7 @@
     <ClInclude Include="헤더.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="READ_CARROT.cpp" />
     <ClCompile Include="소스.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
