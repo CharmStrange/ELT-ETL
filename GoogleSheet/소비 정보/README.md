@@ -95,7 +95,7 @@ function fillInTemplate_(template, data) {
 ```
 
 ### 작성한 메모를 추출하는 스크립트
-```
+```다
 function extractNotesFromJulySheet() {
   const sheetName = '7월';
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(sheetName);
@@ -120,3 +120,8 @@ function extractNotesFromJulySheet() {
   }
 }
 ```
+
+---
+**이메일 전송 작업이 완료되면 모바일 위젯에서 바로 확인이 가능하다.**
+<img width="1080" height="1404" alt="image" src="https://github.com/user-attachments/assets/97aea74f-011a-47cc-8d44-33cee8e60dd2" />
+<img width="966" height="1243" alt="image" src="https://github.com/user-attachments/assets/ee7f4f03-a7c9-48b0-a292-b0e1792befc0" />
