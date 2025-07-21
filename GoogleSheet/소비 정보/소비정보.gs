@@ -13,15 +13,16 @@ function sendSumEmail() {
 
   // 📌 Gmail 초안 제목 (고정)
   const subjectLine = '소비 정보';
+  const month = sheet.getName();
 
   // 📌 Gmail 초안 템플릿 가져오기
   const template = getGmailTemplateFromDrafts_(subjectLine);
 
   // 📌 자리표시자 치환
   const msgObj = fillInTemplate_(
-    template.message, 
-    { Sum: sum.toFixed(2) } // 소수점 2자리로 포맷
-  );
+  template.message, 
+  { Sum: sum.toFixed(2), Month: month } // ⬅️ month도 포함
+);
 
   // 📌 메일 전송
   GmailApp.sendEmail(recipient, msgObj.subject, msgObj.text, {
