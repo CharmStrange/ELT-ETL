@@ -13,6 +13,6 @@ custom ELT & ETL process building project!
 - Load
 
 [Google Sheet Projects]()
-- 
-- 
+- Blog Management
+- Information of my Spending
 - 
