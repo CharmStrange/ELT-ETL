@@ -15,7 +15,7 @@
 #
 
 ### 시트 정보 추출 후 매 달 말 이메일 자동 전송 작업을 수행하는 스크립트
-[소비정보.gs]()
+[소비정보.gs](https://github.com/CharmStrange/ELT-ETL/blob/main/GoogleSheet/%EC%86%8C%EB%B9%84%20%EC%A0%95%EB%B3%B4/%EC%86%8C%EB%B9%84%EC%A0%95%EB%B3%B4.gs)
 
 #
 
