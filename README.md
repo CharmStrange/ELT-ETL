@@ -12,7 +12,7 @@ custom ELT & ETL process building project!
 - Transform
 - Load
 
-[Google Sheet Projects]()
+[Google Sheet Projects](https://github.com/CharmStrange/ELT-ETL/tree/main/GoogleSheet)
 - Blog Management
 - Information of my Spending
 - 
