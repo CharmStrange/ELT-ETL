@@ -1,5 +1,18 @@
 function sendSumEmail() {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  sendSumEmailForMonth("7월");
+}
+
+function sendSumEmailForMonth(monthName) {
+  const monthList = ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"];
+  
+  if (!monthList.includes(monthName)) {
+    throw new Error(`"${monthName}"은 유효한 월 이름이 아닙니다.`);
+  }
+
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(monthName);
+  if (!sheet) {
+    throw new Error(`"${monthName}"라는 시트를 찾을 수 없습니다.`);
+  }
 
   // 📌 합계 계산 (M2:M33)
   const sumRange = sheet.getRange("M2:M33").getValues();
@@ -13,16 +26,15 @@ function sendSumEmail() {
 
   // 📌 Gmail 초안 제목 (고정)
   const subjectLine = '소비 정보';
-  const month = sheet.getName();
 
   // 📌 Gmail 초안 템플릿 가져오기
   const template = getGmailTemplateFromDrafts_(subjectLine);
 
   // 📌 자리표시자 치환
   const msgObj = fillInTemplate_(
-  template.message, 
-  { Sum: sum.toFixed(2), Month: month } // ⬅️ month도 포함
-);
+    template.message,
+    { Sum: sum.toFixed(2), Month: monthName }
+  );
 
   // 📌 메일 전송
   GmailApp.sendEmail(recipient, msgObj.subject, msgObj.text, {
@@ -31,13 +43,11 @@ function sendSumEmail() {
     inlineImages: template.inlineImages
   });
 
-  // ✅ 사용자 알림 제거 → 로그만 남김
-  Logger.log(`이메일을 ${recipient}로 보냈습니다. 합계: ${sum.toFixed(2)}`);
+  // ✅ 로그 남기기
+  Logger.log(`이메일을 ${recipient}로 보냈습니다. [${monthName}] 합계: ${sum.toFixed(2)}`);
 }
 
-/**
- * Gmail 초안 템플릿 불러오기
- */
+//Gmail 초안 템플릿 불러오기
 function getGmailTemplateFromDrafts_(subject_line){
   const drafts = GmailApp.getDrafts();
   const draft = drafts.filter(d => d.getMessage().getSubject() === subject_line)[0];
@@ -70,9 +80,7 @@ function getGmailTemplateFromDrafts_(subject_line){
   };
 }
 
-/**
- * 자리표시자 치환 함수
- */
+//자리표시자 치환 함수
 function fillInTemplate_(template, data) {
   let templateString = JSON.stringify(template);
   templateString = templateString.replace(/{{[^{}]+}}/g, key => {
