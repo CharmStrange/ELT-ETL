@@ -19,7 +19,10 @@
 
 #
 
-### 작성한 메모를 추출하는 스크립트
+### 작성한 메모를 추출하고 기록하는 스크립트
+<img width="618" height="384" alt="image" src="https://github.com/user-attachments/assets/5d5b239e-e1e1-4e05-8efa-0c739ecd71ba" />
+
+
 [메모추출.gs](https://github.com/CharmStrange/ELT-ETL/blob/main/GoogleSheet/%EC%86%8C%EB%B9%84%20%EC%A0%95%EB%B3%B4/%EB%A9%94%EB%AA%A8%EC%B6%94%EC%B6%9C.gs)
 
 #
