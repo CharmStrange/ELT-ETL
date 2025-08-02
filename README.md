@@ -15,4 +15,4 @@ custom ELT & ETL process building project!
 [Google Sheet Projects](https://github.com/CharmStrange/ELT-ETL/tree/main/GoogleSheet)
 - Blog Management
 - Information of my Spending
-- 
+- Google Drive Management
